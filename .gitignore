@@ -16,6 +16,8 @@ conda-meta/
 !/data/README.md
 !/data/test_sets/
 !/data/test_sets/**
+!/data/train_ids/
+!/data/train_ids/**
 /checkpoints/*
 !/checkpoints/README.md
 /logs*/

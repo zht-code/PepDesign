@@ -14,6 +14,7 @@ PepDesign is a peptide design research codebase for training, preference optimiz
 |-- results/                      # reproducible analysis/generation scripts for manuscript sections
 |-- docs/figures/                 # PNG figures rendered directly in this README
 |-- data/test_sets/               # lightweight benchmark/test-set definitions
+|-- data/train_ids/               # lightweight training-set ID/list files
 |-- checkpoints/                  # local checkpoint placeholder; weights are ignored
 `-- requirements.txt              # lightweight Python dependency list
 ```
@@ -36,6 +37,7 @@ This repository does not include large training structures, generated complexes,
 - `data/test_sets/family_level_test.csv`: family-level held-out benchmark split.
 - `data/test_sets/PPDbench_pep_fastas/`: PPDbench peptide FASTA shards used by the benchmark workflow.
 - `data/test_sets/split_summary.json`: split-count summary.
+- `data/train_ids/`: NR50 training-set ID/list files and clustering summaries.
 
 The full PDB/receptor structure directories on the training server are much larger and are intentionally not committed to GitHub. Prepare these local paths before running full experiments:
 
@@ -116,5 +118,4 @@ The manuscript framework figure is stored in `docs/figures/` so it renders direc
 ## License
 
 Please add the final project license before public release.
-
 
