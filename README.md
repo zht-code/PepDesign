@@ -1,4 +1,4 @@
-# PepDesign
+﻿# PepDesign
 
 PepDesign is a peptide design research codebase for training, preference optimization, generation, and evaluation of target-binding peptides. This repository is prepared as a lightweight manuscript-code release: source code and display-ready manuscript figures are included, while large datasets, docking outputs, generated structures, and model checkpoints are intentionally excluded from version control.
 
@@ -101,41 +101,11 @@ Additional manuscript analyses are organized by section:
 - `results/6_Biophysical_consistency/`: biophysical consistency analyses
 - `results/7_case/`: case-study generation scripts
 
-## Manuscript figures
+## Manuscript figure
 
-The PNG files below are stored in `docs/figures/` so they render directly on GitHub.
-
-### Main figures
+The manuscript framework figure is stored in `docs/figures/` so it renders directly on GitHub.
 
 ![PepDesign manuscript framework](docs/figures/PepDesign_framework.png)
-
-![PepDesign overview](docs/figures/PepDesign.png)
-
-![Optimal-transport augmentation](docs/figures/main_OT.png)
-
-![DPO training and multi-objective optimization](docs/figures/main_DPO.png)
-
-![SOTA benchmark](docs/figures/main_SOTA.png)
-
-![Ablation study](docs/figures/main_ablation.png)
-
-![Robustness analysis](docs/figures/main_robustness.png)
-
-![Biophysical consistency](docs/figures/main_biophysical.png)
-
-![Case studies](docs/figures/main_case.png)
-
-### Selected benchmark panels
-
-![pLDDT comparison](docs/figures/plddt_barplot_protein_level_test.png)
-
-![Ramachandran compliance](docs/figures/ramachandran_barplot_protein_level_test.png)
-
-![Novelty comparison](docs/figures/novelty_barplot_protein_level_test.png)
-
-![Protein-level native vs best affinity](docs/figures/protein_level_test_native_vs_best_affinity_split133.png)
-
-![Family-level native vs best affinity](docs/figures/family_level_test_native_vs_best_affinity_split133.png)
 
 ## Reproducibility notes
 
@@ -146,4 +116,5 @@ The PNG files below are stored in `docs/figures/` so they render directly on Git
 ## License
 
 Please add the final project license before public release.
+
 
