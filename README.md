@@ -105,7 +105,7 @@ Additional manuscript analyses are organized by section:
 
 The manuscript framework figure is stored in `docs/figures/` so it renders directly on GitHub.
 
-![PepDesign manuscript framework](docs/figures/PepDesign_framework.png)
+![PepDesign manuscript framework](docs/figures/PepDesign_framework_cropped.png)
 
 ## Reproducibility notes
 
