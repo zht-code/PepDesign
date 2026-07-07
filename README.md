@@ -1,4 +1,4 @@
-﻿# PepDesign
+# PepDesign
 
 PepDesign is a peptide design research codebase for training, preference optimization, generation, and evaluation of target-binding peptides. This repository is prepared as a lightweight manuscript-code release: source code and display-ready manuscript figures are included, while large datasets, docking outputs, generated structures, and model checkpoints are intentionally excluded from version control.
 
