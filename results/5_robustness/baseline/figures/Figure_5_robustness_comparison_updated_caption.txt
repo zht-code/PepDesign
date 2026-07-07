@@ -1,0 +1,31 @@
+Figure 5 (updated) | Robustness comparison across Ours, RFdiffusion, ProteinGenerator, and BindCraft (intersection cohort).
+
+a, Schematic of three target-side perturbation families: structure_missing (fraction of missing receptor atoms),
+pocket_noise (Gaussian pocket coordinate noise, Å RMSD), and sequence_trunc (C-terminal truncation percentage).
+
+b, Normalized affinity degradation curves (each method normalized to its clean-condition mean; higher is better after sign flip).
+Three small multiples share the same method color legend. Strengths use native units (% or Å) aligned across methods.
+
+c, Heatmap of worst-case relative performance drop (%) across affinity (HDOCK mean), success rate, stability, and solubility;
+rows are method × perturbation family.
+
+d, Robustness summary from intersection tables for affinity_hdock: AUDC, sensitivity slope, and max drop as three stacked
+strip panels; each violin is one method, summarizing the three perturbation-family values (structure_missing, pocket_noise, sequence_trunc).
+
+e, Representative-strength relative drop in affinity (%): structure_missing and sequence_trunc at 20% and 40%;
+pocket_noise at 1.0 Å (moderate) and 2.0 Å (stronger). Drops compare each condition to the clean (level 0) mean using the
+same negated-HDOCK convention as panel c.
+
+f, Success-rate degradation curves mirroring panel b: normalized success rate (relative to clean) versus perturbation strength,
+same layout and method colors for direct comparison with affinity trends.
+
+g, Affinity (HDOCK) distribution under pocket noise 1.0 Å: violin bodies with median lines; per-method sample CSVs.
+When intersection_targets.csv is present, distributions are restricted to that target list for comparable support.
+
+h, Representative aggregate comparison: mean HDOCK affinity for clean vs pocket noise 1.0 Å per method from the same
+intersection condition curves used in b–f (cohort means, not single-structure montage).
+
+Data: quantitative panels use `tables/all_methods_condition_curves_intersection.csv` and
+`tables/all_methods_robustness_summary_intersection.csv` (intersection-only alignment). Sample-level panel g additionally
+reads per-method `samples_pocket_noise_lvl1p0_r0.csv` under baseline/raw_results, and Ours samples from
+`results/5_robustness/tables/samples_pocket_noise_lvl1p0_r0.csv`.

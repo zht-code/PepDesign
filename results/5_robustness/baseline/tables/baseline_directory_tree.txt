@@ -1,0 +1,308 @@
+baseline/
+├── cache/
+│   ├── archives/
+│   │   ├── RFdiffusion_top5/
+│   │   └── result_bindcraft/
+│   ├── clean_inputs/
+│   │   ├── bindcraft/
+│   │   ├── proteingenerator/
+│   │   └── rfdiffusion/
+│   ├── foldx_work/
+│   │   ├── bindcraft/
+│   │   ├── proteingenerator/
+│   │   └── rfdiffusion/
+│   ├── hdock_work/
+│   │   ├── bindcraft/
+│   │   ├── proteingenerator/
+│   │   └── rfdiffusion/
+│   ├── hf_cache/
+│   │   └── transformers/
+│   ├── perturbed_targets/
+│   │   ├── pocket_noise_lvl0p5_r0/
+│   │   ├── pocket_noise_lvl1p0_r0/
+│   │   ├── pocket_noise_lvl1p5_r0/
+│   │   ├── pocket_noise_lvl2p0_r0/
+│   │   ├── sequence_trunc_lvl10p0_r0/
+│   │   ├── sequence_trunc_lvl20p0_r0/
+│   │   ├── sequence_trunc_lvl30p0_r0/
+│   │   ├── sequence_trunc_lvl40p0_r0/
+│   │   ├── structure_missing_lvl10p0_r0/
+│   │   ├── structure_missing_lvl10p0_r1/
+│   │   ├── structure_missing_lvl10p0_r2/
+│   │   ├── structure_missing_lvl20p0_r0/
+│   │   ├── structure_missing_lvl20p0_r1/
+│   │   ├── structure_missing_lvl20p0_r2/
+│   │   ├── structure_missing_lvl30p0_r0/
+│   │   ├── structure_missing_lvl30p0_r1/
+│   │   ├── structure_missing_lvl30p0_r2/
+│   │   ├── structure_missing_lvl40p0_r0/
+│   │   ├── structure_missing_lvl40p0_r1/
+│   │   └── structure_missing_lvl40p0_r2/
+│   ├── recovered_structures/
+│   │   └── rfdiffusion/
+│   └── torch_cache/
+├── cases/
+├── configs/
+│   └── success_rate_thresholds.yaml
+├── env/
+├── figures/
+│   ├── Figure_5_robustness_comparison.pdf
+│   ├── Figure_5_robustness_comparison.png
+│   └── Figure_5_robustness_comparison_caption.txt
+├── logs/
+│   ├── baseline_robustness_20260415_130435.log
+│   ├── baseline_robustness_20260415_130551.log
+│   ├── baseline_robustness_20260415_130830.log
+│   ├── baseline_robustness_20260415_131507.log
+│   ├── baseline_robustness_20260415_131608.log
+│   ├── baseline_robustness_20260415_131706.log
+│   ├── baseline_robustness_20260415_131733.log
+│   ├── baseline_robustness_20260415_131835.log
+│   ├── baseline_robustness_20260415_131903.log
+│   ├── baseline_robustness_20260415_131931.log
+│   ├── baseline_robustness_20260415_131947.log
+│   ├── baseline_robustness_20260415_133059.log
+│   ├── baseline_robustness_20260415_133115.log
+│   ├── baseline_robustness_20260415_133243.log
+│   ├── baseline_robustness_20260415_133341.log
+│   ├── baseline_robustness_20260415_133416.log
+│   ├── baseline_robustness_20260415_133421.log
+│   ├── baseline_robustness_20260415_134702.log
+│   ├── baseline_robustness_20260415_134754.log
+│   ├── baseline_robustness_20260416_131524.log
+│   ├── baseline_robustness_20260416_132542.log
+│   ├── baseline_robustness_20260416_141059.log
+│   ├── baseline_robustness_20260416_141142.log
+│   ├── baseline_robustness_20260416_141300.log
+│   ├── baseline_robustness_20260416_141516.log
+│   ├── baseline_robustness_20260416_142354.log
+│   ├── baseline_robustness_20260416_142726.log
+│   ├── baseline_robustness_20260416_194236.log
+│   ├── baseline_robustness_20260416_195134.log
+│   └── full_suite_background.log
+├── metrics/
+├── raw_results/
+│   ├── bindcraft/
+│   │   ├── clean_properties/
+│   │   ├── all_samples.csv
+│   │   ├── samples_pocket_noise_lvl0p0_r0.csv
+│   │   ├── samples_pocket_noise_lvl0p5_r0.csv
+│   │   ├── samples_pocket_noise_lvl1p0_r0.csv
+│   │   ├── samples_pocket_noise_lvl1p5_r0.csv
+│   │   ├── samples_pocket_noise_lvl2p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl0p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl10p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl20p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl30p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl40p0_r0.csv
+│   │   ├── samples_structure_missing_lvl0p0_r0.csv
+│   │   ├── samples_structure_missing_lvl10p0_r0.csv
+│   │   ├── samples_structure_missing_lvl20p0_r0.csv
+│   │   ├── samples_structure_missing_lvl30p0_r0.csv
+│   │   └── samples_structure_missing_lvl40p0_r0.csv
+│   ├── proteingenerator/
+│   │   ├── clean_properties/
+│   │   ├── all_samples.csv
+│   │   ├── samples_pocket_noise_lvl0p0_r0.csv
+│   │   ├── samples_pocket_noise_lvl0p5_r0.csv
+│   │   ├── samples_pocket_noise_lvl1p0_r0.csv
+│   │   ├── samples_pocket_noise_lvl1p5_r0.csv
+│   │   ├── samples_pocket_noise_lvl2p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl0p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl10p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl20p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl30p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl40p0_r0.csv
+│   │   ├── samples_structure_missing_lvl0p0_r0.csv
+│   │   ├── samples_structure_missing_lvl10p0_r0.csv
+│   │   ├── samples_structure_missing_lvl20p0_r0.csv
+│   │   ├── samples_structure_missing_lvl30p0_r0.csv
+│   │   └── samples_structure_missing_lvl40p0_r0.csv
+│   ├── rfdiffusion/
+│   │   ├── clean_properties/
+│   │   ├── all_samples.csv
+│   │   ├── samples_pocket_noise_lvl0p0_r0.csv
+│   │   ├── samples_pocket_noise_lvl0p5_r0.csv
+│   │   ├── samples_pocket_noise_lvl1p0_r0.csv
+│   │   ├── samples_pocket_noise_lvl1p5_r0.csv
+│   │   ├── samples_pocket_noise_lvl2p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl0p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl10p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl20p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl30p0_r0.csv
+│   │   ├── samples_sequence_trunc_lvl40p0_r0.csv
+│   │   ├── samples_structure_missing_lvl0p0_r0.csv
+│   │   ├── samples_structure_missing_lvl0p0_r1.csv
+│   │   ├── samples_structure_missing_lvl0p0_r2.csv
+│   │   ├── samples_structure_missing_lvl10p0_r0.csv
+│   │   ├── samples_structure_missing_lvl10p0_r1.csv
+│   │   ├── samples_structure_missing_lvl10p0_r2.csv
+│   │   ├── samples_structure_missing_lvl20p0_r0.csv
+│   │   ├── samples_structure_missing_lvl20p0_r1.csv
+│   │   ├── samples_structure_missing_lvl20p0_r2.csv
+│   │   ├── samples_structure_missing_lvl30p0_r0.csv
+│   │   ├── samples_structure_missing_lvl30p0_r1.csv
+│   │   ├── samples_structure_missing_lvl30p0_r2.csv
+│   │   ├── samples_structure_missing_lvl40p0_r0.csv
+│   │   ├── samples_structure_missing_lvl40p0_r1.csv
+│   │   └── samples_structure_missing_lvl40p0_r2.csv
+│   └── rfdiffusion_mpnn_sequences.csv
+├── repos/
+│   ├── BindCraft/
+│   │   ├── .git/
+│   │   ├── example/
+│   │   ├── functions/
+│   │   ├── notebooks/
+│   │   ├── settings_advanced/
+│   │   ├── settings_filters/
+│   │   ├── settings_target/
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── bindcraft.py
+│   │   ├── bindcraft.slurm
+│   │   ├── install_bindcraft.sh
+│   │   └── pipeline.png
+│   ├── ProteinMPNN/
+│   │   ├── ca_model_weights/
+│   │   ├── colab_notebooks/
+│   │   ├── examples/
+│   │   ├── helper_scripts/
+│   │   ├── inputs/
+│   │   ├── outputs/
+│   │   ├── soluble_model_weights/
+│   │   ├── training/
+│   │   ├── vanilla_model_weights/
+│   │   ├── .gitignore
+│   │   ├── COMMIT_ID
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── protein_mpnn_run.py
+│   │   └── protein_mpnn_utils.py
+│   ├── RFdiffusion/
+│   │   ├── .git/
+│   │   ├── .github/
+│   │   ├── .rosetta-ci/
+│   │   ├── config/
+│   │   ├── docker/
+│   │   ├── env/
+│   │   ├── examples/
+│   │   ├── helper_scripts/
+│   │   ├── img/
+│   │   ├── rfdiffusion/
+│   │   ├── scripts/
+│   │   ├── tests/
+│   │   ├── .gitignore
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   └── setup.py
+│   └── protein_generator/
+│       ├── .git/
+│       │   ├── branches/
+│       │   ├── hooks/
+│       │   ├── info/
+│       │   ├── logs/
+│       │   ├── objects/
+│       │   ├── refs/
+│       │   ├── HEAD
+│       │   ├── config
+│       │   ├── description
+│       │   ├── index
+│       │   ├── packed-refs
+│       │   └── shallow
+│       ├── examples/
+│       │   ├── out/
+│       │   ├── pdbs/
+│       │   ├── aa_weights.json
+│       │   ├── args.json
+│       │   ├── motif_scaffolding.sh
+│       │   ├── multistate.sh
+│       │   ├── multistate_args.json
+│       │   ├── partial_diffusion.sh
+│       │   ├── reduced_aa_args.json
+│       │   ├── reduced_amino_acid_sampling.sh
+│       │   ├── secondary_structure.sh
+│       │   ├── secondary_structure_bias.sh
+│       │   ├── secondary_structure_from_pdb.sh
+│       │   ├── sequence_conditioning.sh
+│       │   ├── sequence_partial_diffusion.sh
+│       │   ├── symmetric_design.sh
+│       │   ├── unconditional_design.sh
+│       │   └── weighted_sequence.sh
+│       ├── model/
+│       │   ├── .ipynb_checkpoints/
+│       │   ├── __pycache__/
+│       │   ├── se3_transformer/
+│       │   ├── utils/
+│       │   ├── Attention_module.py
+│       │   ├── AuxiliaryPredictor.py
+│       │   ├── Embeddings.py
+│       │   ├── RoseTTAFoldModel.py
+│       │   ├── SE3_network.py
+│       │   ├── Track_module.py
+│       │   ├── apply_masks.py
+│       │   ├── chemical.py
+│       │   ├── coords6d.py
+│       │   ├── diffusion.py
+│       │   ├── kinematics.py
+│       │   ├── parsers.py
+│       │   ├── scoring.py
+│       │   ├── util.py
+│       │   └── util_module.py
+│       ├── utils/
+│       │   ├── .ipynb_checkpoints/
+│       │   ├── __pycache__/
+│       │   ├── figs/
+│       │   ├── tmp/
+│       │   ├── .inf_methods.py.swp
+│       │   ├── app.py
+│       │   ├── calc_dssp.py
+│       │   ├── contigs.py
+│       │   ├── diff_utils.py
+│       │   ├── geometry.py
+│       │   ├── inpainting_util.py
+│       │   ├── parsers_inference.py
+│       │   ├── potentials.py
+│       │   └── sampler.py
+│       ├── .gitignore
+│       ├── LICENSE
+│       ├── README.md
+│       ├── environment.yml
+│       ├── inference.py
+│       ├── protein_generator.ipynb
+│       └── setup.py
+├── scripts/
+│   ├── __pycache__/
+│   │   ├── plot_robustness_comparison.cpython-310.pyc
+│   │   └── run_baseline_robustness.cpython-310.pyc
+│   ├── _tmp_rfd_input.csv
+│   ├── check_baseline_progress.py
+│   ├── plot_robustness_comparison.py
+│   ├── recover_rfdiffusion_structures.py
+│   ├── run_baseline_robustness.py
+│   └── run_full_baseline_robustness.sh
+├── tables/
+│   ├── .ipynb_checkpoints/
+│   │   ├── all_methods_robustness_summary-checkpoint.csv
+│   │   ├── all_methods_robustness_summary_intersection-checkpoint.csv
+│   │   └── bindcraft_robustness_summary-checkpoint.csv
+│   ├── all_methods_condition_curves_all_available.csv
+│   ├── all_methods_condition_curves_intersection.csv
+│   ├── all_methods_robustness_summary.csv
+│   ├── all_methods_robustness_summary_all_available.csv
+│   ├── all_methods_robustness_summary_intersection.csv
+│   ├── baseline_best_candidates.csv
+│   ├── baseline_best_candidates_intersection.csv
+│   ├── baseline_directory_tree.txt
+│   ├── baseline_input_index.csv
+│   ├── baseline_method_coverage.csv
+│   ├── baseline_robustness_aggregate_by_condition.csv
+│   ├── bindcraft_robustness_aggregate_by_condition.csv
+│   ├── bindcraft_robustness_summary.csv
+│   ├── execution_summary.txt
+│   ├── intersection_targets.csv
+│   ├── proteingenerator_robustness_aggregate_by_condition.csv
+│   ├── proteingenerator_robustness_summary.csv
+│   ├── rfdiffusion_robustness_aggregate_by_condition.csv
+│   └── rfdiffusion_robustness_summary.csv
+├── tmp/
+└── README.md

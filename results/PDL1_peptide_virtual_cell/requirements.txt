@@ -1,0 +1,25 @@
+# Python >= 3.10
+igraph>=0.11.0
+leidenalg>=0.10.0
+scanpy>=1.9.3
+anndata>=0.9.2
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+adjusttext>=1.1.0
+biopython>=1.81
+PyYAML>=6.0
+statsmodels>=0.14.0
+tabulate>=0.9.0
+huggingface_hub>=0.20.0
+# Geneformer ISP / token 化（需 GPU 与可访问 huggingface.co 的安装源；国内可镜像或离线 wheel）
+# geneformer: pip install "git+https://huggingface.co/ctheodoris/Geneformer"
+# 官方 vendor/requirements.txt 要求 transformers==4.46；新版 transformers 会导致 ImportError: SpecialTokensMixin
+# python3 -m pip install "transformers==4.46"
+# 常见伴随依赖：torch, transformers, datasets, pyarrow, tqdm, loompy, mygene（符号映射可选）
+# 可选
+# gseapy>=1.0.0
+# scvi-tools>=1.0.0

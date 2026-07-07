@@ -1,0 +1,15 @@
+Figure 5. Robustness of the final peptide design model to imperfect target information.
+
+(a) Schematic of three perturbation families applied only at test time: random residue-level structure dropout in the receptor encoder input, Gaussian noise on pocket backbone atoms (within 10 Å of the peptide in the crystal), and random contiguous cropping of the receptor sequence with aligned coordinates.
+
+(b) Global affinity degradation trajectories after min–max normalization of raw perturbation strengths (structure/sequence: 0–40%; pocket: 0–2 Å). Curves show change in negated HDOCK score relative to the clean condition per family.
+
+(c) Heatmap of relative performance drop (%) for affinity (negated HDOCK), composite success rate, stability, and solubility; rows enumerate perturbation family and severity.
+
+(d) Summary bars from the analytical robustness table: area-under-degradation-curve (AUDC) for affinity and interpolated perturbation strengths at which relative drop exceeds 10% and 20% (see metrics definitions in README).
+
+(e–g) Fine-grained mean HDOCK (left axis) and success rate (right axis) versus physical perturbation level for each family.
+
+(h) Representative target panel: clean versus strongly perturbed structure-missing condition for the top-1 candidate, highlighting loss of predicted binding quality.
+
+Metrics: HDOCK affinity (lower is better), FoldX-derived stability proxy, Protein-Sol solubility; success rate requires all three to pass configured thresholds.

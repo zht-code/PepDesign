@@ -1,0 +1,177 @@
+# PDL1 多肽虚拟细胞验证 — 全局配置（路径相对项目根目录）
+
+project_name: PDL1_peptide_virtual_cell
+
+dataset_name: GSE273718_PBMC_T_vs_tumor_CD45_scrna
+# h5ad / 10x / csv / auto（按路径推断）
+input_format: auto
+
+# 主流程单细胞：GSE273718 合并 h5ad（见 data/h5ad.py build_gse273718）
+scrna_input_path: data/processed/GSE273718_merged.h5ad
+
+# 10x：若为目录，内含 matrix.mtx / barcodes.tsv / features.tsv（或 genes.tsv）
+tenx_matrix_dir: ""
+
+# CSV：行为细胞、列为基因（或转置由 csv_genes_are_rows 指定）
+scrna_csv_path: ""
+csv_genes_are_rows: false
+
+condition_column: condition
+celltype_column: cell_type
+
+# UMAP 发表图：图例外置、无刻度；umap_show_density: true 叠加密度等高线
+umap_show_density: false
+umap_display_labels:
+  cell_type:
+    T_cell: "T cell"
+    Tumor: "Tumor"
+  condition:
+    PBMC: "Peripheral blood T"
+    TIL: "Tumor CD45+"
+
+# 对照/处理：与 GSE273718_merged.h5ad 中 obs['condition'] 一致（常见于 PBMC / TIL）
+control_label: PBMC
+treatment_label: TIL
+
+# pathway / DEG 子集：仅统计这些 cell_type（GSE273718：PBMC→T_cell，TIL→Tumor）
+target_celltypes:
+  - T_cell
+  - Tumor
+
+species: human
+
+peptide_table: peptides/candidate_peptides.csv
+
+# docking 结果（可选）：TSV 含 peptide_id, docking_score, mmgbsa_score, interface_residues, distance_to_PD1_interface
+docking_results_path: ""
+
+output_dir: results
+
+# 肽相关柱状图/热图仅展示综合分 Top N（与 final_score 一致，避免图幅过密）
+plot_max_peptides: 50
+# 发表用肽排名图（binding / blockade / safety / final）：仅展示 Top 10–15，横向 lollipop
+plot_ranking_top_n: 12
+plot_ranking_lollipop: true
+# 第四层肽×得分热图：matplotlib 命名 colormap（如 viridis、Blues）
+plot_similarity_heatmap_cmap: viridis
+
+# 第四层：simple_signature | scgpt | geneformer_pert | scfoundation_pert | geneformer_isp
+# geneformer_pert / scfoundation_pert：基于参考 scRNA 伪批量 + 多肽扰动强度的 CD274 显式预测（见 foundation_perturb_layer4）
+# geneformer_isp：官方 InSilicoPerturber 基因删除等完整前向；肽强度仅缩放嵌入位移（方案 A，见 geneformer_isp_layer4）
+virtual_cell_backend: geneformer_isp
+
+# --- Geneformer ISP（virtual_cell_backend: geneformer_isp 时生效；需先 token 化 + 完整模型快照）---
+geneformer_isp_token_data_dir: ""
+geneformer_isp_model_dir: ""
+geneformer_isp_output_dir: results/geneformer_isp
+geneformer_isp_output_prefix: cd274_delete
+geneformer_isp_ensembl_gene: ENSG00000196776
+geneformer_isp_perturb_type: delete
+geneformer_isp_emb_mode: cls
+geneformer_isp_model_version: V2
+geneformer_isp_forward_batch_size: 24
+geneformer_isp_nproc: 4
+geneformer_isp_max_ncells: null
+geneformer_isp_force_rerun: false
+geneformer_isp_peptide_scale_mode: combined
+geneformer_isp_logfc_alpha: 2.5
+geneformer_isp_down_scaled_shift_thr: 0.015
+geneformer_isp_filter_data: null
+geneformer_isp_token_dictionary_file: ""
+
+# 真扰动基础模型权重根目录（scripts/download_perturb_virtual_cell_models.py 下载子目录 geneformer、scfoundation_cell）
+perturb_vc_models_dir: models/perturb_virtual_cell
+perturb_vc_target_gene: CD274
+perturb_vc_max_cells: 4000
+# log1p 域相对对照下调超过该阈值则 predicted_cd274_down=1（与线性表达下降同时满足）
+perturb_vc_cd274_down_logfc_thr: 0.05
+perturb_vc_cd274_down_linear_eps: 0.0
+# 两路 backend 对 CD274 额外下调项的相对强度（可微调）
+geneformer_pert_cd274_extra_scale: 0.35
+scfoundation_pert_cd274_extra_scale: 0.28
+
+# 第四层 scGPT：与主流程同源，使用 GSE115978.h5ad（留空则沿用 scrna_input_path）
+scgpt_scrna_input_path: ""
+scgpt_condition_column: ""
+scgpt_control_label: ""
+scgpt_treatment_label: ""
+
+# scGPT 预训练目录（相对项目根）；首次运行可从 HuggingFace 镜像自动下载
+scgpt_model_dir: models/scgpt_whole_human
+scgpt_hf_repo: perturblab/scgpt-human
+scgpt_hf_mirrors:
+  - https://hf-mirror.com
+  - https://huggingface.co
+scgpt_max_cells: 3000
+scgpt_batch_size: 24
+scgpt_max_length: 1200
+scgpt_gene_col: index
+scgpt_virtual_delta: 0.45
+# 无 flash-attn 时务必为 false
+scgpt_use_flash_attention: false
+
+random_seed: 42
+
+# 第三层：DEG 签名 / 上下调列表（较严，供第四层等使用）
+deg_padj_max: 0.05
+deg_abs_logfc_min: 0.5
+deg_rank_method: t-test_overestim_var
+
+# 火山图着色：不设下列两项时沿用 deg_padj_max / deg_abs_logfc_min（与第三层签名一致 → 上图式中间灰、两翼有色）
+# deg_volcano_padj_max:
+# deg_volcano_abs_logfc_min:
+# 火山图虚线（发表常用 ±0.5 与 padj=0.05）；与着色分离，避免「放宽着色」时竖线跟成 ±0.2 导致观感不像参考图
+deg_volcano_vline_padj: 0.05
+deg_volcano_vline_abs_lfc: 0.5
+# 火山图 log2FC 横轴范围（发表参考图常用 ±4）
+deg_volcano_xlim: [-4, 4]
+# 火山图画布英寸宽×高（可选；不设则约 4.25×4.45）；加宽以减轻多基因标注挤叠
+deg_volcano_figsize: [6.8, 5.0]
+
+# 第三层 DEG 可选独立 h5ad；留空则与 scrna_input_path 相同（当前即 GSE115978）
+deg_reference:
+  scrna_input_path: ""
+  condition_column: ""
+  control_label: ""
+  treatment_label: ""
+  celltype_column: ""
+  target_celltypes: []
+  require_celltypes_in_both_groups: true
+  deg_min_cells_per_arm: 15
+  rank_method: ""
+# 火山图 -log10(padj) 上限（80 或 100）
+deg_volcano_ymax: 100
+# 火山图：发表风格仅标注下列基因；分组标题非空时启用 deg_volcano_annotation_groups
+deg_volcano_annotation_groups: []
+# 火山图发表标注：须与 visualization.VOLCANO_PUBLICATION_DEFAULT_GENES 交集（不含 CD274，避免展示 PD-L1）
+deg_volcano_label_genes:
+  - PDCD1
+  - HAVCR2
+  - LAG3
+  - STAT1
+  - IFNG
+  - GZMB
+  - PRF1
+# 火山图不绘制这些基因（仍保留在 layer3_reference_signature_DEG.csv 供其它层使用）
+deg_volcano_exclude_genes:
+  - PDCD1LG2
+deg_volcano_prior_down_genes: []
+deg_volcano_prior_down_caption: ""
+
+# 预处理参数
+n_top_genes: 2000
+n_pcs: 30
+n_neighbors: 15
+leiden_resolution: 0.5
+
+# GEO 元数据（手动下载后放入 data/raw/）
+geo:
+  GSE115978:
+    note: "黑色素瘤 SMART-Seq2（示例队列）"
+    url_hint: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115978
+  GSE273718:
+    note: "当前主流程 scrna_input_path；外周血富集 T vs 肿瘤 CD45+（解剖对照，非药学前后期）"
+    url_hint: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273718
+  gse182004:
+    note: "Bintrafusp alfa (PD-L1/TGFβ) — 请从 GEO 下载放入 data/raw/"
+    url_hint: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182004

@@ -1,0 +1,4 @@
+# Default thresholds reused when the exact paper operating point cannot be parsed automatically.
+hdock_max: -7.0
+stability_min: -3.0
+solubility_min: 0.45

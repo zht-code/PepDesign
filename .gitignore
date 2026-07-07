@@ -1,0 +1,37 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# Environments
+.env
+.venv/
+venv/
+conda-meta/
+
+# Large or generated research artifacts
+/data/*
+!/data/README.md
+/checkpoints/*
+!/checkpoints/README.md
+/logs*/
+/log*/
+/results/**/raw/
+/results/**/intermediate/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.zip
+*.tar
+*.tar.gz
+*.npy
+*.npz
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

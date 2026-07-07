@@ -1,0 +1,16 @@
+Baseline robustness execution summary
+
+Generated at: 2026-04-16T11:51:39.990939+00:00
+
+[rfdiffusion]
+rows=665 resolved_rows=665 resolved_targets=133
+unresolved_reasons={}
+
+[proteingenerator]
+rows=665 resolved_rows=402 resolved_targets=81
+unresolved_reasons={'missing_ppdbench_candidate_pdb': 263}
+
+[bindcraft]
+rows=665 resolved_rows=665 resolved_targets=133
+unresolved_reasons={}
+

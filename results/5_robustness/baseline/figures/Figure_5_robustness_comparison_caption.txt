@@ -1,0 +1,10 @@
+Figure 5 | Robustness comparison across our method and available baselines.
+a, Schematic of the three target-side perturbation families reused from the existing Chapter 5 robustness setup: structure_missing, pocket_noise, and sequence_trunc, each evaluated across five aligned severity levels.
+b, Global normalized affinity degradation curves comparing methods across the three perturbation families.
+c, Heatmap of worst-case performance drop across affinity_hdock, success_rate, stability, and solubility, organized by method and perturbation family.
+d, Robustness summary panel showing AUDC for affinity under each perturbation family.
+e, Fine-grained structure_missing degradation curves.
+f, Fine-grained pocket_noise degradation curves.
+g, Fine-grained sequence_trunc degradation curves.
+h, Representative-case summary. On the current machine, complete matched structure assets were not available for every baseline, so this panel reports resolved-target coverage and quantitative case notes rather than a full structural montage.
+Comparison logic: our previously completed robustness outputs are reused directly from `results/5_robustness/tables`, while baseline robustness is recomputed only from already generated baseline peptide structures that could be located locally. Missing baseline assets are logged explicitly and excluded from quantitative aggregation without interrupting the rest of the pipeline.

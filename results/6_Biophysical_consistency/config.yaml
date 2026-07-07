@@ -1,0 +1,64 @@
+# Peptide biophysical consistency — 全局配置（阈值与路径占位）
+# 所有写入应限制在本工程目录内；project_root 仅用于只读扫描外部数据。
+
+project_root: /root/autodl-tmp/Peptide_3D
+
+paths:
+  # 相对本工程根目录（config.yaml 所在目录的父级即工程根）
+  data_inventory: data_inventory
+  intermediate: intermediate
+  tables: tables
+  figures: figures
+  case_studies: case_studies
+  logs: logs
+
+thresholds:
+  # 结构 / 几何
+  clash_heavy_atom_cutoff_angstrom: 2.5
+  clash_ca_proxy_cutoff_angstrom: 3.5
+  backbone_bond_ca_min_angstrom: 3.0
+  backbone_bond_ca_max_angstrom: 4.2
+
+  # 界面
+  interface_distance_cutoff_angstrom: 5.0
+  min_heavy_atom_contacts: 5
+  min_interface_residues_peptide: 3
+  min_interface_residues_receptor: 3
+  hbond_distance_cutoff_angstrom: 3.5
+
+  # 溶解度 / 聚集热点（序列代理）
+  aggregation_hotspot_window: 5
+  aggregation_hotspot_min_hydrophobic_fraction: 0.6
+  gravy_high_warning: 0.5
+  net_charge_extreme_abs: 8
+
+  # 外部预测器占位（接入 CamSol、pLDDT 等时启用）
+  camsol_low_solubility_threshold: null
+  camsol_high_aggregation_risk_threshold: null
+
+  # 汇总打分权重占位（后续 05 步实现时对齐列名）
+  summary_weights:
+    foldability: 1.0
+    interface: 1.0
+    solubility: 1.0
+
+  # OBCS 线性权重（脚本内会归一化到和为 1）
+  obcs_weights:
+    fcs: 0.28
+    scs: 0.28
+    ics: 0.28
+    anti_agg: 0.16
+
+execution:
+  resume: false
+  max_samples: null
+
+# 00_inventory 只读扫描：相对 project_root 的子目录（避免整盘遍历）
+inventory:
+  relative_scan_roots:
+    - results
+  skip_dirnames:
+    - __pycache__
+    - .git
+    - .ipynb_checkpoints
+    - node_modules

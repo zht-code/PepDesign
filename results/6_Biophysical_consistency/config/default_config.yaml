@@ -1,0 +1,28 @@
+# 生物物理一致性分析 — 默认配置（可拷贝到 config/local_config.yaml 后修改）
+
+# Peptide_3D 项目根（含 results/ 的目录）
+project_root: /root/autodl-tmp/Peptide_3D
+
+# 数据发现：相对 project_root 的优先扫描子目录（存在则递归）
+discovery_subdirs:
+  - results/5_robustness/baseline
+  - results/2_SOTA
+
+# 额外包含的通配（相对 project_root）；默认留空以避免整树重复扫描。
+# 如需全盘索引可改为 ["results/**/*.csv"] 等。
+extra_globs: []
+
+# 界面分析：重原子距离阈值（Å）
+interface_distance_cutoff: 5.0
+
+# 疏水互补：Kyte-Doolittle 尺度上，把 |hydro_rec - hydro_pep| 小于该值视为“等级相近”
+hydrophobic_match_delta: 1.2
+
+# 批处理
+max_workers: 1
+
+# 几何：CA 非邻接冲突阈值（Å）
+clash_ca_cutoff: 3.5
+
+# 绘图 DPI
+figure_dpi: 150
