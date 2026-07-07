@@ -1,0 +1,17 @@
+{
+  "dataset_root": "/root/autodl-tmp/train_data_augmentation_strong",
+  "family_assignment_mode": "fallback_protein_as_family",
+  "protein_level": {
+    "train_n": 56039,
+    "test_n": 133,
+    "test_unique_proteins": 21
+  },
+  "family_level": {
+    "train_n": 56039,
+    "test_n": 133,
+    "test_unique_families": 23
+  },
+  "family_identity_threshold": 0.4,
+  "seed": 42,
+  "family_split_seed": 43
+}

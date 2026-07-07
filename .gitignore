@@ -14,6 +14,8 @@ conda-meta/
 # Large or generated research artifacts
 /data/*
 !/data/README.md
+!/data/test_sets/
+!/data/test_sets/**
 /checkpoints/*
 !/checkpoints/README.md
 /logs*/

@@ -6,16 +6,16 @@ PepDesign is a peptide design research codebase for training, preference optimiz
 
 ```text
 .
-├── train.py / train_DDP.py       # supervised/base training entry points
-├── models.py / models_DPO.py     # model definitions
-├── modules/                      # datasets, losses, transformer blocks, RL utilities
-├── utils/                        # preprocessing, augmentation, DPO, evaluation, plotting helpers
-├── scripts/                      # batch evaluation and structure-metric utilities
-├── results/                      # reproducible analysis/generation scripts for manuscript sections
-├── docs/figures/                 # PNG figures rendered directly in this README
-├── data/                         # local data placeholder; large files are ignored
-├── checkpoints/                  # local checkpoint placeholder; weights are ignored
-└── requirements.txt              # lightweight Python dependency list
+|-- train.py / train_DDP.py       # supervised/base training entry points
+|-- models.py / models_DPO.py     # model definitions
+|-- modules/                      # datasets, losses, transformer blocks, RL utilities
+|-- utils/                        # preprocessing, augmentation, DPO, evaluation, plotting helpers
+|-- scripts/                      # batch evaluation and structure-metric utilities
+|-- results/                      # reproducible analysis/generation scripts for manuscript sections
+|-- docs/figures/                 # PNG figures rendered directly in this README
+|-- data/test_sets/               # lightweight benchmark/test-set definitions
+|-- checkpoints/                  # local checkpoint placeholder; weights are ignored
+`-- requirements.txt              # lightweight Python dependency list
 ```
 
 ## Installation
@@ -28,11 +28,18 @@ pip install -r requirements.txt
 
 Some evaluation pipelines call external tools such as MMseqs2, docking/scoring software, ESMFold/OpenFold-style structure prediction, or MolProbity. Install those separately for the corresponding analyses.
 
-## Data and checkpoints
+## Data, test sets, and checkpoints
 
-This repository does not include large training data, benchmark structures, generated complexes, docking outputs, or model weights. Prepare these local paths before running full experiments:
+This repository does not include large training structures, generated complexes, docking outputs, or model weights. It does include lightweight test-set definitions under `data/test_sets/`:
 
-- `data/`: processed peptide--receptor training data and benchmark splits
+- `data/test_sets/protein_level_test.csv`: protein-level held-out benchmark split.
+- `data/test_sets/family_level_test.csv`: family-level held-out benchmark split.
+- `data/test_sets/PPDbench_pep_fastas/`: PPDbench peptide FASTA shards used by the benchmark workflow.
+- `data/test_sets/split_summary.json`: split-count summary.
+
+The full PDB/receptor structure directories on the training server are much larger and are intentionally not committed to GitHub. Prepare these local paths before running full experiments:
+
+- `data/`: processed peptide--receptor training data and benchmark structures
 - `checkpoints/`: trained SFT/DPO checkpoints
 - external docking and structure-quality tools available on `PATH` when required
 
@@ -100,6 +107,8 @@ The PNG files below are stored in `docs/figures/` so they render directly on Git
 
 ### Main figures
 
+![PepDesign manuscript framework](docs/figures/PepDesign_framework.png)
+
 ![PepDesign overview](docs/figures/PepDesign.png)
 
 ![Optimal-transport augmentation](docs/figures/main_OT.png)
@@ -137,3 +146,4 @@ The PNG files below are stored in `docs/figures/` so they render directly on Git
 ## License
 
 Please add the final project license before public release.
+
