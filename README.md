@@ -114,8 +114,3 @@ The manuscript framework figure is stored in `docs/figures/` so it renders direc
 - Random seeds, split files, and benchmark manifests should be kept with the corresponding dataset release.
 - Large generated structures and docking outputs should be archived outside GitHub, for example in Zenodo, figshare, OSF, or an institutional repository.
 - If publishing the code with the manuscript, add dataset/checkpoint download links here once they are finalized.
-
-## License
-
-Please add the final project license before public release.
-
